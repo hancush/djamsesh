@@ -1,4 +1,5 @@
 {% extends 'blurgh/base.html' %}
+{% load staticfiles %}
 
 {% block content %}
 	<div class="post">
@@ -7,5 +8,9 @@
 	        <p>{{ post.published_date }}</p>
 	    {% endif %}
 	    <p>{{ post.text|linebreaksbr }}</p>
+	</div>
+
+	<div class="back">
+		<a href="{% url 'post_list' %}"><img src="{% static 'images/back.gif' %}" id="back"></a>
 	</div>
 {% endblock %}
