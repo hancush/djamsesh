@@ -1,15 +1,11 @@
-<html>
-	<head>
-		<title>hey girl hey</title>
-	</head>
+{% extends 'blurgh/base.html' %}
 
-	<body>
-		<h1>ryan-gosling.png</h2>
-
-		{% for post in published_posts %}
-			<h2>{{ post.title }}</h2>
+{% block content %}
+	{% for post in published_posts %}
+		<div class="post">
+			<h2><a href="{% url 'post_detail' post_id=post.pk %}">{{ post.title }}</a></h2>
 			<p>published {{ post.published_date }}</p>
-			<p>{{ post.text }}</p>
-		{% endfor %}
-	</body>
-</html>
+			<p>{{ post.text|linebreaksbr }}</p>
+		</div>
+	{% endfor %}
+{% endblock %}

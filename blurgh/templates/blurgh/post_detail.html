@@ -1,0 +1,11 @@
+{% extends 'blurgh/base.html' %}
+
+{% block content %}
+	<div class="post">
+	    <h2>{{ post.title }}</h2>
+	    {% if post.published_date %}
+	        <p>{{ post.published_date }}</p>
+	    {% endif %}
+	    <p>{{ post.text|linebreaksbr }}</p>
+	</div>
+{% endblock %}
